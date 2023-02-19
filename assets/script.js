@@ -37,9 +37,32 @@ city.textContent = citysearch;
             temp.textContent = "Temperature: " + data.main.temp + " °F"
             wind.textContent = "Wind: " + data.wind.speed + " MPH"
             humidity.textContent = "Humidity: " + data.main.humidity + " %"
-      });
+            let longitude = data.coord.lon
+            console.log(longitude);
+            let latitude = data.coord.lat
+            console.log(latitude);
+      
+        // 5 day forecast
+        let lon = '';
+        let lat = '';
+        longitude = lon; 
+        latitude = lat; 
+            let queryURL5day = "http://api.openweathermap.org/data/2.5/forecast?&lat=" +lat + "&lon=" + lon + "&appid=" + APIKey; 
+
+        fetch(queryURL5day)
+
+        .then(function (response){
+            return response.json();
+        })
+
+        .then(function (data5){
+            console.log('Let me see some more data \n----------');
+            console.log(data5);
+        })
+      
+        });
     return;
-    
+
 
 
 }
