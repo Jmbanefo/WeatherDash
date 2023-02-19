@@ -32,13 +32,18 @@
         <p id="currentDay"> Current Day</p>
 
     </div>
-    
+
+    <!-- City Selection -->
     <div class="select-city">
         <p>Please select your city!</p>
         <input id="mycity" type="text" placeholder="Minneapolis"/>
         <button id="cityInput">Select</button>
-        
-        <div class="border-top border-primary" id="history"></div>
+    <!-- Past searches -->
+  </div>
+      <div class="pastSearches"> This is where past searches will go
+  </div>
+      <!-- Current Conditions -->
+        <div class="border-top border-primary"></div>
         <div class="todayForecast">
           <h3 id="displayCity">City:</h3>
           <ul>
@@ -47,9 +52,9 @@
             <li id="humidity">Humidity:</li>
           </ul>
         </div>
-          
-        </div>
-        
+    
+    <div id="castheader"></div>
+    <div class="d-flex flex-row flex-wrap justify-content-between" id="fivedayForcast"> This displays 5 day forecast</div>
 
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
