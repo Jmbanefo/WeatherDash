@@ -23,6 +23,12 @@ let citysearch = document.getElementById("mycity").value;
 
 let queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + citysearch + "&units=imperial" + "&appid=" + APIKey;
 
+
+city.textContent = "City: " + citysearch; 
+temp.textContent = "Temperature " + data[0].main.temp
+wind.textContent = "Wind " + data[0].wind.speed
+humidity.textContent = "Humidity " + data[0].main.humidity
+
     fetch(queryURL)
     .then(function (response) {
         return response.json();
@@ -33,8 +39,5 @@ let queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + citysearch 
       });
     return;
 
-    city.textContent = "City " + event; 
-    temp.textContent = "Temperature " + data[0].main.temp
-    wind.textContent = "Wind " + data[0].wind.speed
-    humidity.textContent = "Humidity " + data[0].main.humidity
+
 }
