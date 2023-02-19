@@ -6,13 +6,9 @@ $("#currentDay").html(currentDate);
 let citysearch = document.getElementById("mycity"); 
 
 
-
-
-// let cityInput = document.getElementById('mycity')
-
 let queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + citysearch + "&appid=" + APIKey;
 
-//Need to have the user input working
+
 fetch(queryURL)
     .then(function (response) {
         return response.json();
