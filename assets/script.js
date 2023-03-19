@@ -103,11 +103,11 @@ function getHistory(citysearch){
             console.log("Latitude: " + latitude);
 
             // Gets Image
-            var iconUrl = `http://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png`;
+            var iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
             var image = document.createElement("img");
             image.src = iconUrl;
-            citysearch.appendChild(image);
+            city.appendChild(image);
       
         // 5 day forecast
         lon = longitude
@@ -202,6 +202,12 @@ fetch(queryURL)
     let latitude = data.coord.lat
     console.log('Let me see some current data \n----------');
     console.log(data);
+
+    var iconUrl1 = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+
+    var imageR = document.createElement("img");
+    imageR.src = iconUrl1;
+    city.appendChild(imageR);
 
         temp.textContent = "Temperature: " + data.main.temp + " °F"
         wind.textContent = "Wind: " + data.wind.speed + " MPH"
