@@ -5,7 +5,7 @@ $("#currentDay").html(currentDate);
 
 //Search Button
 let searchBtn = $('#cityInput');
-searchBtn.on("click", citySubmit) // MY SUBMIT BUTTON // ADD Funtion inside // Seperate displays for the diplsay and history function
+searchBtn.on("click", citySubmit) 
 // Current Conditions
 let city = document.getElementById("displayCity")
 let temp = document.getElementById("temperature")
@@ -40,7 +40,7 @@ let day5Temp = document.getElementById("d5-temp")
 let day5Winds = document.getElementById("d5-winds")
 let day5Humidity = document.getElementById("d5-humidity")
 
-
+//History List 
 let history = document .querySelector(".pastSearches")
 let historyList = []; 
 
@@ -53,8 +53,6 @@ let citysearch = document.getElementById("mycity").value;
 
 let queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + citysearch + "&units=imperial" + "&appid=" + APIKey;
     city.textContent = citysearch; 
-    // getSearch(); When getSearch is running then the code no longer has History array or displays!!! Need buttons working. 
-
 
 
 function historyBtn(citysearch) { 
@@ -74,11 +72,12 @@ function getHistory(citysearch){
         let newBtn = document.createElement("addBtn"); 
         newBtn.setAttribute("type", "button")
         newBtn.setAttribute("class", "list")
-        newBtn.setAttribute("searched", historyList[index])
+        newBtn.setAttribute("data-searched", historyList[index])
         newBtn.textContent = historyList[index]
         history.append(newBtn)
 
-        history.addEventListener("click", getSearch())
+  
+        newBtn.addEventListener("click", getSearch)
    
     }
 
@@ -102,6 +101,13 @@ function getHistory(citysearch){
             humidity.textContent = "Humidity: " + data.main.humidity + " %"
             console.log("Longitiude: " + longitude);
             console.log("Latitude: " + latitude);
+
+            //Gets Image
+            // var iconUrl = `http://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png`;
+
+            // var image = document.createElement("img");
+            // image.src = iconUrl;
+            // citysearch.appendChild(image);
       
         // 5 day forecast
         lon = longitude
@@ -177,10 +183,11 @@ function getHistory(citysearch){
 }
 
 //History Request///
-function getSearch(newBtn){
-    
-let queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + newBtn + "&units=imperial" + "&appid=" + APIKey;
-
+function getSearch(){
+    console.log(this.dataset.searched);
+    let city = this.dataset.searched; 
+let queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial" + "&appid=" + APIKey;
+    city= document.getElementById("mycity").value; 
 
 fetch(queryURL)
    
@@ -269,19 +276,6 @@ fetch(queryURL)
     });
 return;
 }
-
-
-
-
-
-// function prevBtn (e) {
-//     if(!e.target.matches(".list")){
-//         return
-//     }
-//     let myBtn = e.target
-//     // let citysearch = myBtn.getAttribute("list")
-//     // getSearch(citysearch); 
-// }
 
 
 
