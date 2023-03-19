@@ -102,12 +102,12 @@ function getHistory(citysearch){
             console.log("Longitiude: " + longitude);
             console.log("Latitude: " + latitude);
 
-            //Gets Image
-            // var iconUrl = `http://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png`;
+            // Gets Image
+            var iconUrl = `http://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png`;
 
-            // var image = document.createElement("img");
-            // image.src = iconUrl;
-            // citysearch.appendChild(image);
+            var image = document.createElement("img");
+            image.src = iconUrl;
+            citysearch.appendChild(image);
       
         // 5 day forecast
         lon = longitude
@@ -185,9 +185,10 @@ function getHistory(citysearch){
 //History Request///
 function getSearch(){
     console.log(this.dataset.searched);
-    let city = this.dataset.searched; 
-let queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial" + "&appid=" + APIKey;
-    city= document.getElementById("mycity").value; 
+    let cityR = this.dataset.searched; 
+    city.textContent = cityR
+let queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityR + "&units=imperial" + "&appid=" + APIKey;
+
 
 fetch(queryURL)
    
@@ -201,6 +202,7 @@ fetch(queryURL)
     let latitude = data.coord.lat
     console.log('Let me see some current data \n----------');
     console.log(data);
+
         temp.textContent = "Temperature: " + data.main.temp + " °F"
         wind.textContent = "Wind: " + data.wind.speed + " MPH"
         humidity.textContent = "Humidity: " + data.main.humidity + " %"
