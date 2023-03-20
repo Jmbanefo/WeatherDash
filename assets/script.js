@@ -51,7 +51,7 @@ function citySubmit(event) {
     event.preventDefault();
     console.log("City: " + citysearch);
 
-    let queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + citysearch + "&units=imperial" + "&appid=" + APIKey;
+    let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + citysearch + "&units=imperial" + "&appid=" + APIKey;
     city.textContent = citysearch;
 
 
@@ -103,7 +103,7 @@ function citySubmit(event) {
             console.log("Latitude: " + latitude);
 
             // Gets Image
-            var iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+            var iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
             var image = document.createElement("img");
             image.src = iconUrl;
@@ -112,7 +112,7 @@ function citySubmit(event) {
             // 5 day forecast
             lon = longitude
             lat = latitude
-            let queryURL5day = "http://api.openweathermap.org/data/2.5/forecast?&lat=" + lat + "&lon=" + lon + "&appid=" + APIKey + "&units=imperial";
+            let queryURL5day = "https://api.openweathermap.org/data/2.5/forecast?&lat=" + lat + "&lon=" + lon + "&appid=" + APIKey + "&units=imperial";
 
             fetch(queryURL5day)
 
@@ -124,11 +124,11 @@ function citySubmit(event) {
                     console.log('Let me see some 5 day data \n----------');
                     console.log(data5);
 
-                    let Icon = `http://openweathermap.org/img/wn/${data5.list[0].weather[0].icon}@2x.png`;
-                    let Icon2 = `http://openweathermap.org/img/wn/${data5.list[8].weather[0].icon}@2x.png`;
-                    let Icon3 = `http://openweathermap.org/img/wn/${data5.list[16].weather[0].icon}@2x.png`;
-                    let Icon4 = `http://openweathermap.org/img/wn/${data5.list[24].weather[0].icon}@2x.png`;
-                    let Icon5 = `http://openweathermap.org/img/wn/${data5.list[32].weather[0].icon}@2x.png`;
+                    let Icon = `https://openweathermap.org/img/wn/${data5.list[0].weather[0].icon}@2x.png`;
+                    let Icon2 = `https://openweathermap.org/img/wn/${data5.list[8].weather[0].icon}@2x.png`;
+                    let Icon3 = `https://openweathermap.org/img/wn/${data5.list[16].weather[0].icon}@2x.png`;
+                    let Icon4 = `https://openweathermap.org/img/wn/${data5.list[24].weather[0].icon}@2x.png`;
+                    let Icon5 = `https://openweathermap.org/img/wn/${data5.list[32].weather[0].icon}@2x.png`;
 
 
                     let img = document.createElement("img")
@@ -188,7 +188,7 @@ function getSearch() {
     console.log(this.dataset.searched);
     let cityR = this.dataset.searched;
     city.textContent = cityR
-    let queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityR + "&units=imperial" + "&appid=" + APIKey;
+    let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityR + "&units=imperial" + "&appid=" + APIKey;
 
 
     fetch(queryURL)
@@ -204,7 +204,7 @@ function getSearch() {
             console.log('Let me see some current data \n----------');
             console.log(data);
 
-            var iconUrl1 = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+            var iconUrl1 = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
             var imageR = document.createElement("img");
             imageR.src = iconUrl1;
@@ -219,7 +219,7 @@ function getSearch() {
             // 5 day forecast
             lon = longitude
             lat = latitude
-            let queryURL5day = "http://api.openweathermap.org/data/2.5/forecast?&lat=" + lat + "&lon=" + lon + "&appid=" + APIKey + "&units=imperial";
+            let queryURL5day = "https://api.openweathermap.org/data/2.5/forecast?&lat=" + lat + "&lon=" + lon + "&appid=" + APIKey + "&units=imperial";
 
             fetch(queryURL5day)
 
@@ -231,11 +231,11 @@ function getSearch() {
                     console.log('Let me see some 5 day data \n----------');
                     console.log(data5);
 
-                    let Icon = `http://openweathermap.org/img/wn/${data5.list[0].weather[0].icon}@2x.png`;
-                    let Icon2 = `http://openweathermap.org/img/wn/${data5.list[8].weather[0].icon}@2x.png`;
-                    let Icon3 = `http://openweathermap.org/img/wn/${data5.list[16].weather[0].icon}@2x.png`;
-                    let Icon4 = `http://openweathermap.org/img/wn/${data5.list[24].weather[0].icon}@2x.png`;
-                    let Icon5 = `http://openweathermap.org/img/wn/${data5.list[32].weather[0].icon}@2x.png`;
+                    let Icon = `https://openweathermap.org/img/wn/${data5.list[0].weather[0].icon}@2x.png`;
+                    let Icon2 = `https://openweathermap.org/img/wn/${data5.list[8].weather[0].icon}@2x.png`;
+                    let Icon3 = `https://openweathermap.org/img/wn/${data5.list[16].weather[0].icon}@2x.png`;
+                    let Icon4 = `https://openweathermap.org/img/wn/${data5.list[24].weather[0].icon}@2x.png`;
+                    let Icon5 = `https://openweathermap.org/img/wn/${data5.list[32].weather[0].icon}@2x.png`;
 
 
                     let img = document.createElement("img")
